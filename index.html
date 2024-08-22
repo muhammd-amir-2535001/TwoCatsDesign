@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Link to Remix Icon library for using Remix icons in your project -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- Preconnect to optimize loading of Google Fonts by establishing an early connection -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Link to Google Fonts for Poppins and Rethink Sans font families with various weights and styles -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet">
+
+  <!-- Link to custom CSS files for project-specific styles -->
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="stylesheet" href="/assets/css/responsive-Layout.css">
+
+  <!-- Include Tailwind CSS from CDN with additional plugins for forms and typography -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <!-- Include Tailwind CSS from CDN (this second link might be redundant if the first is already included) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Include Alpine.js for handling interactivity with declarative JavaScript -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+  <title>Two Cut</title>
+</head>
+
+<body>
+  <!--============ header and hero section start =========-->
+  <div
+    class="relative min-h-screen w-screen lg:flex lg:flex-col lg:justify-start lg:items-center bg-cover bg-no-repeat bg-center sm:flex-col sm:py-5"
+    style="background-image: url('/assets/images/hero-background.png');">
+
+    <!-- Navigation bar -->
+    <nav class="relative container flex flex-col items-center justify-center md:flex-row md:items-center">
+      <div class="nav__header flex items-center justify-between w-full md:w-auto">
+        <!-- Logo -->
+        <a href="#"
+          class="block md:text-5xl md:h-[55px] lg:w-[168px] lg:h-[102px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+          <img src="/assets/images/Logo.png" alt="logo" class="h-[102px] inline-block w-auto lg:w-[168px] lg:h-[102px]">
+        </a>
+        <!-- Menu button for mobile view -->
+        <div class="nav__menu__btn text-3xl text-white" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <!-- Navigation links -->
+      <ul class="nav__links flex flex-col md:flex-row md:space-x-6" id="nav-links">
+        <li class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">
+          <a href="#">Home</a>
+        </li>
+        <li class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">
+          <a href="#">About</a>
+        </li>
+        <li
+          class="relative transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">
+          <!-- Services dropdown menu -->
+          <a href="#" id="services-btn" class="flex items-center space-x-1 hover:text-blue-600 cursor-pointer">
+            <span>Services</span>
+            <svg class="w-4 h-4 text-white transition-transform duration-200 transform" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+          <!-- Dropdown menu items -->
+          <ul id="dropdown-menu" class="absolute hidden bg-black text-white shadow-lg rounded-md mt-2 py-2 w-48">
+            <li><a href="#"
+                class="block px-4 py-2 hover:text-[#22A8C6] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">Service
+                1</a></li>
+            <li><a href="#"
+                class="block px-4 py-2 hover:text-[#22A8C6] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">Service
+                2</a></li>
+            <li><a href="#"
+                class="block px-4 py-2 hover:text-[#22A8C6] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">Service
+                3</a></li>
+          </ul>
+        </li>
+        <li class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">
+          <a href="#">Projects</a>
+        </li>
+        <li class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">
+          <a href="#">Testimonials</a>
+        </li>
+        <li class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+      <!-- Live chat button -->
+      <div class="nav__btns mt-4 md:mt-0">
+        <button
+          class="btn live__chat transition ease-in-out delay-150 bg-[#22A8C6] hover:-translate-y-1 hover:scale-110 hover:bg-black hover:border-spacing-1 duration-300">
+          <span class="icon">
+            <img src="/assets/images/Live-Chat-icon.png" alt="Live Chat Icon">
+          </span>
+          Live Chat
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main content of the hero section -->
+    <div
+      class="relative container flex flex-col lg:py-10 lg:mt-10 md:flex-row md:justify-between sm:mt-6 sm:px-4 px-4 items-center justify-center md:items-center">
+      <main class="flex flex-col items-start justify-center text-left w-full max-w-[681px] space-y-4">
+        <!-- Main heading -->
+        <h2
+          class="text-[#22A8C6] font-semibold tracking-[-0.82px] mb-[7px] Fixture
+        transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300
+        text-[24px] leading-[28px] sm:text-[28px] sm:leading-[30px] md:text-[30px] md:leading-[34px] lg:text-[36px] lg:leading-[40px] xl:text-[40px] xl:leading-[44px]">
+          Grow Your Business With
+        </h2>
+        <!-- Subheading with an image -->
+        <h3
+          class="text-white font-semibold tracking-[-0.82px] mb-[7px] Fixture
+        transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300
+        text-[32px] leading-[32px] sm:text-[40px] sm:leading-[40px] md:text-[48px] md:leading-[48px] lg:text-[56px] lg:leading-[56px]">
+          The Best Web Design Company
+          <img src="/assets/images/sparkle.png" alt="Sparkle"
+            class="inline-block h-[32px] sm:h-[40px] md:h-[48px] lg:h-[56px] w-auto">
+        </h3>
+        <!-- Description paragraph -->
+        <p
+          class="text-white text-[16px] md:text-[18.39px] leading-[24px] md:leading-[36.77px] mt-4 py-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">
+          Deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          laudantium, to Nemo enim ipsam voluptatem quia voluptas sit aspernatur.
+        </p>
+        <!-- Call-to-action button -->
+        <button class="bg-[#22A8C6] Fixture w-full max-w-[100vw] h-[60px] py-3 rounded-[70px] text-white mt-4 md:max-w-[230px] md:w-full
+        transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">
+          Explore More
+        </button>
+      </main>
+
+      <!-- Contact form section -->
+      <section
+        class="w-full max-w-[511px] text-center rounded-[40px] py-4 px-6 bg-gray-900/30 border-t-[0.75px] border-b-[0.75px] border-l-[0.75px] border-r-[0px] border-gray-400 backdrop-blur-md mt-10 md:mt-0 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">
+        <h2
+          class="text-white px-4 py-4 sm:px-8 sm:py-6 md:px-12 md:py-8 lg:px-20 lg:py-10 font-semibold text-[20px] sm:text-[24px] md:text-[28px] lg:text-[30px] leading-[26px] sm:leading-[28px] md:leading-[30px] lg:leading-[30px] tracking-[-0.82px] mb-[7px] Fixture">
+          Let's Talk About Your Project
+        </h2>
+        <!-- Contact form -->
+        <form id="contactForm" class="flex flex-col space-y-4 text-white">
+          <input type="text" placeholder="Full Name*"
+            class="w-full h-[60px] md:h-[70px] rounded-[20px] md:rounded-[30px] border-[0.5px] border-gray-400 px-[26px] bg-transparent text-white placeholder-[#FFFFFF]"
+            required />
+          <input type="email" placeholder="Email*"
+            class="w-full h-[60px] md:h-[70px] rounded-[20px] md:rounded-[30px] border-[0.5px] border-gray-400 px-[26px] bg-transparent text-white placeholder-white"
+            required />
+          <input type="tel" placeholder="Telephone"
+            class="w-full h-[60px] md:h-[70px] rounded-[20px] md:rounded-[30px] border-[0.5px] border-gray-400 px-[26px] bg-transparent text-white placeholder-white" />
+          <textarea placeholder="Message"
+            class="w-full h-[100px] md:h-[119px] rounded-[20px] md:rounded-[30px] border-[0.5px] border-gray-400 px-[25px] py-2 bg-transparent text-white placeholder-white"
+            rows="4"></textarea>
+          <button type="submit"
+            class="w-full h-[50px] md:h-[60px] rounded-[20px] py-[18px] bg-[#22A8C6] text-white font-semibold text-[20px] leading-[24px]">Submit</button>
+        </form>
+      </section>
+    </div>
+  </div>
+  <!--============ header and hero section close =========-->
+  <!--============ section one start =========-->
+  <section class="relative w-full min-h-screen flex items-center justify-center p-4">
+    <!-- Container for the section -->
+    <div class="relative container flex flex-col md:flex-row items-center justify-between w-full min-h-screen">
+
+      <!-- Left Side -->
+      <div class="flex flex-col items-start justify-center w-full md:w-1/3 h-full mb-8 md:mb-0">
+        <!-- Section Title -->
+        <div class="text-[22.06px] text-black mb-8 md:mb-12">
+          Who We Are
+        </div>
+        <!-- Left Image -->
+        <div class="mt-10">
+          <img src="/assets/images/section-one-left-mg-one.png" alt="Left Image"
+            class="w-full h-auto max-w-[284px] object-cover" />
+        </div>
+        <!-- Decorative SVG -->
+        <div class="px-4 py-2 md:px-10 md:py-6">
+          <svg width="83" height="84" viewBox="0 0 83 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Black square -->
+            <rect width="56" height="56" transform="matrix(-1 0 0 1 83 0)" fill="#000102" />
+            <!-- Blue square -->
+            <rect width="56" height="56" transform="matrix(-1 0 0 1 56 28)" fill="#22A8C6" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Center -->
+      <div class="flex flex-col items-start justify-center w-full md:w-1/2 h-full px-4 md:px-8">
+        <!-- Section Heading with Decorative SVG -->
+        <h2 class="text-[22px] md:text-[41px] Fixture font-semibold text-[#000102] mb-4">
+          <span class="flex items-center Fixture">
+            About the Two Cat
+            <!-- Decorative SVG -->
+            <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M21.8996 0.533388C21.984 -0.177796 23.016 -0.177796 23.1005 0.533388L23.8084 6.49958C24.7225 14.2035 30.7965 20.2775 38.5004 21.1916L44.4665 21.8996C45.1778 21.984 45.1778 23.016 44.4665 23.1005L38.5004 23.8084C30.7965 24.7225 24.7225 30.7965 23.8084 38.5004L23.1005 44.4665C23.016 45.1778 21.984 45.1778 21.8996 44.4665L21.1916 38.5004C20.2775 30.7965 14.2035 24.7225 6.49958 23.8084L0.533388 23.1005C-0.177796 23.016 -0.177796 21.984 0.533388 21.8996L6.49958 21.1916C14.2035 20.2775 20.2775 14.2035 21.1916 6.49958L21.8996 0.533388Z"
+                fill="#22A8C6" />
+            </svg>
+          </span>
+          Designs
+        </h2>
+        <!-- Section Description -->
+        <p class="text-[15px] md:text-[17.16px] leading-6 md:leading-8 text-[#000102] mb-4 font-poppins">
+          It is a long established fact that a reader will be distracted by the readable content of a page
+          when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+          distribution of letters.
+        </p>
+
+        <!-- Strategy Section -->
+        <div class="flex justify-center items-start py-5">
+          <!-- Icon Container -->
+          <div class="bg-[#22A8C6] w-16 h-10 py-3 px-2 flex items-center justify-center mr-4 rounded-full">
+            <img src="/assets/images/arrow_right_alt.png" alt="Arrow Right" />
+          </div>
+
+          <!-- Text Content Container -->
+          <div class="flex flex-col justify-center">
+            <h3 class="text-lg font-semibold text-[#000102] mb-2 Fixture">
+              Strategy
+            </h3>
+            <p class="text-sm text-[#000102] leading-6 mb-4 py-3 font-poppins">
+              deserunt mollit anim id est sed ut perspiciatis unde omnis iste natus error sit voluptatem. mollit anim id
+              est sed ut perspiciatis unde.
+            </p>
+          </div>
+        </div>
+
+        <!-- Efficiency Section -->
+        <div class="flex justify-center items-start py-5">
+          <!-- Icon Container -->
+          <div class="bg-[#22A8C6] w-16 h-10 py-3 px-2 flex items-center justify-center mr-4 rounded-full">
+            <img src="/assets/images/arrow_right_alt.png" alt="Arrow Right" />
+          </div>
+
+          <!-- Text Content Container -->
+          <div class="flex flex-col justify-center">
+            <h3 class="text-lg font-semibold text-[#000102] mb-2 Fixture">
+              Efficiency
+            </h3>
+            <p class="text-sm text-[#000102] leading-6 mb-4 py-3 font-poppins">
+              deserunt mollit anim id est sed ut perspiciatis unde omnis iste natus error sit voluptatem. mollit anim
+              id est sed ut perspiciatis unde.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Side -->
+      <div class="flex w-full md:w-1/3 h-full justify-center items-center">
+        <!-- Right Image -->
+        <img src="/assets/images/Rectangle-right.png" alt="Right Image"
+          class="w-full h-auto max-w-[467px] max-h-[588px] object-cover" />
+      </div>
+
+    </div>
+  </section>
+  <!--============ section one close =========-->
+
+
+  <!--============ section two start =========-->
+  <!--============ section two start =========-->
+  <section
+    class="relative flex flex-col sm:flex-row min-h-screen items-center justify-center py-10 px-4 sm:py-20 sm:px-10">
+    <!-- Main Container -->
+    <div class="lg:py-5 relative w-full max-w-full mx-auto rounded-2xl bg-black bg-cover bg-center"
+      style="background-image: url('/assets/images/background-color-section-two.png');">
+
+      <!-- Content Container -->
+      <div class="flex flex-col items-center justify-center w-full py-10 px-4">
+        <!-- Heading -->
+        <h2
+          class="text-[22px] md:text-[41px] mb-4 text-center font-semibold text-white leading-[49px] md:leading-[49px] mt-8 md:mt-10 w-full max-w-3xl">
+          <span class="flex items-center justify-center">
+            Discover Our
+            <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-2">
+              <path
+                d="M21.8996 0.533388C21.984 -0.177796 23.016 -0.177796 23.1005 0.533388L23.8084 6.49958C24.7225 14.2035 30.7965 20.2775 38.5004 21.1916L44.4665 21.8996C45.1778 21.984 45.1778 23.016 44.4665 23.1005L38.5004 23.8084C30.7965 24.7225 24.7225 30.7965 23.8084 38.5004L23.1005 44.4665C23.016 45.1778 21.984 45.1778 21.8996 44.4665L21.1916 38.5004C20.2775 30.7965 14.2035 24.7225 6.49958 23.8084L0.533388 23.1005C-0.177796 23.016 -0.177796 21.984 0.533388 21.8996L6.49958 21.1916C14.2035 20.2775 20.2775 14.2035 21.1916 6.49958L21.8996 0.533388Z"
+                fill="#22A8C6" />
+            </svg>
+          </span>
+          Success Stories
+        </h2>
+
+        <!-- Description -->
+        <div
+          class="text-center font-poppins text-[#F8F8F8] mt-4 md:mt-6 text-base md:text-[22px] leading-6 md:leading-[27px] max-w-3xl">
+          Explore our curated collection of successful projects.
+        </div>
+
+        <!-- Rotated Image -->
+        <div class="relative mt-8 lg:left-[36%] lg:top-[-178px]">
+          <img class="w-[241.22px] h-[129.95px] rotate-[486.46deg] mx-auto sm:h-[25]"
+            src="/assets/images/hero-bottom-line.png" alt="Hero Bottom Line">
+        </div>
+      </div>
+
+      <!-- Images Container -->
+      <div class="flex flex-col sm:flex-row items-center justify-center w-full mt-8 sm:mt-12 px-4 py-5">
+        <!-- Image 1 -->
+        <div class="relative w-full max-w-full sm:max-w-[687.92px] h-auto mb-8 sm:mb-0 mx-auto">
+          <div
+            class="w-full h-auto rounded-lg bg-gradient-to-b from-[#000000] via-[#000000] to-transparent overflow-hidden">
+            <img src="/assets/images/sec-2-cart-one.png" alt="Description"
+              class="w-full h-full object-cover rounded-lg opacity-70" />
+          </div>
+        </div>
+        <!-- Image 2 -->
+        <div class="relative w-full max-w-full sm:max-w-[632.76px] h-auto mx-auto">
+          <div
+            class="w-full h-auto rounded-lg bg-gradient-to-b from-[#000000] via-[#000000] to-transparent overflow-hidden">
+            <img src="/assets/images/sec-2-cart-two.png" alt="Description"
+              class="w-full h-full object-cover rounded-lg opacity-70" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Images Container -->
+      <div class="flex flex-col sm:flex-row items-center justify-center w-full mt-8 sm:mt-12 px-4 py-5">
+        <!-- Image 3 -->
+        <div class="relative w-full max-w-full sm:max-w-[687.92px] h-auto mb-8 sm:mb-0 mx-auto">
+          <div class="w-full h-auto rounded-lg bg-gradient-to-b from-[#000000] to-[#000000] overflow-hidden">
+            <img src="/assets/images/sec-2-cart-three.png" alt="Gaming" class="w-full h-full object-cover rounded-lg" />
+          </div>
+        </div>
+        <!-- Image 4 -->
+        <div class="relative w-full max-w-full sm:max-w-[632.76px] h-auto mx-auto">
+          <div class="w-full h-auto rounded-lg bg-gradient-to-b from-[#000000] to-[#000000] overflow-hidden">
+            <img src="/assets/images/sec-2-cart-four.png" alt="Sales" class="w-full h-full object-cover rounded-lg" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!--============ section two close =========-->
+
+  <!--============ section three star =========-->
+  <!--============ section three start =========-->
+  <section class="relative bg-white py-12 sm:py-16 px-4 sm:px-10">
+    <div class="container mx-auto">
+      <!-- Main Container -->
+      <div class="flex flex-col lg:flex-row items-center justify-between space-y-10 lg:space-y-0 lg:space-x-10">
+
+        <!-- Left Side - Image & Stats -->
+        <div class="lg:w-1/2 flex flex-col items-center lg:items-start space-y-8 lg:space-y-12">
+
+          <!-- Image -->
+          <div class="w-full max-w-md lg:max-w-none lg:w-[700px] h-auto rounded-lg overflow-hidden">
+            <img src="/assets/images/section-three-img-one.png" alt="Client Meeting" class="w-full h-full object-cover">
+          </div>
+
+          <!-- Stats Box -->
+          <div
+            class="bg-[#22A8C6] py-5 sm:p-10 lg:p-12 flex w-full flex-col items-center lg:items-start text-white text-center rounded-lg">
+            <h2 class="text-[24px] leading-[30px] md:text-[38px] md:leading-[49px] text-white py-5 mb-4 w-full">
+              <span class="flex items-center justify-center">
+                What our clients
+                <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="ml-2">
+                  <path
+                    d="M21.8996 0.533388C21.984 -0.177796 23.016 -0.177796 23.1005 0.533388L23.8084 6.49958C24.7225 14.2035 30.7965 20.2775 38.5004 21.1916L44.4665 21.8996C45.1778 21.984 45.1778 23.016 44.4665 23.1005L38.5004 23.8084C30.7965 24.7225 24.7225 30.7965 23.8084 38.5004L23.1005 44.4665C23.016 45.1778 21.984 45.1778 21.8996 44.4665L21.1916 38.5004C20.2775 30.7965 14.2035 24.7225 6.49958 23.8084L0.533388 23.1005C-0.177796 23.016 -0.177796 21.984 0.533388 21.8996L6.49958 21.1916C14.2035 20.2775 20.2775 14.2035 21.1916 6.49958L21.8996 0.533388Z"
+                    fill="#22A8C6" />
+                </svg>
+              </span>
+              and partners say
+            </h2>
+
+            <!-- Stats -->
+            <div
+              class="flex flex-col lg:flex-row text-center items-center justify-between w-full lg:justify-center space-y-6 lg:space-y-0 lg:space-x-10 mt-6">
+              <!-- Stats Item 1 -->
+              <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
+                <p class="font-poppins font-semibold text-lg lg:text-xl leading-[32.5px]">Peoples</p>
+                <p class="font-bold text-2xl lg:text-5xl py-3 leading-[55px] tracking-tight">850+</p>
+                <p class="font-poppins text-sm lg:text-base">is a long established</p>
+              </div>
+              <!-- Stats Item 2 -->
+              <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
+                <p class="font-poppins font-semibold text-lg lg:text-xl leading-[32.5px]">Experience</p>
+                <p class="font-bold text-2xl lg:text-5xl leading-[55px] tracking-tight py-3">300</p>
+                <p class="font-poppins text-sm lg:text-base">is a long established</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side - Testimonial -->
+        <div class="lg:w-1/2 flex flex-col items-start space-y-8 lg:space-y-12">
+
+          <!-- Testimonial Heading -->
+          <div class="w-full lg:w-[700px]">
+            <h2
+              class="text-[22px] md:text-[49.02px] mb-4 text-left text-black leading-[55px] md:leading-[49px] mt-8 md:mt-10 w-full max-w-3xl">
+              <span class="flex items-start justify-start md:leading-8">
+                What our clients
+                <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="ml-2">
+                  <path
+                    d="M21.8996 0.533388C21.984 -0.177796 23.016 -0.177796 23.1005 0.533388L23.8084 6.49958C24.7225 14.2035 30.7965 20.2775 38.5004 21.1916L44.4665 21.8996C45.1778 21.984 45.1778 23.016 44.4665 23.1005L38.5004 23.8084C30.7965 24.7225 24.7225 30.7965 23.8084 38.5004L23.1005 44.4665C23.016 45.1778 21.984 45.1778 21.8996 44.4665L21.1916 38.5004C20.2775 30.7965 14.2035 24.7225 6.49958 23.8084L0.533388 23.1005C-0.177796 23.016 -0.177796 21.984 0.533388 21.8996L6.49958 21.1916C14.2035 20.2775 20.2775 14.2035 21.1916 6.49958L21.8996 0.533388Z"
+                    fill="#22A8C6" />
+                </svg>
+              </span>
+              and partners say
+            </h2>
+
+            <!-- Testimonial Text -->
+            <p class="text-[15px] md:text-[17.16px] leading-6 md:leading-10 text-[#000102] mb-4">
+              We Focus At Every Stage On Effective Communication And Collaboration Between
+              The Client And Ensuring That The Final Design Meets The Client's Objectives And
+              Expectations.
+            </p>
+          </div>
+
+          <!-- Testimonial Box -->
+          <div
+            class="bg-gray-100 p-6 sm:p-10 lg:p-12 flex flex-col items-center lg:items-start text-center lg:text-left rounded-lg border border-gray-300 space-y-6 lg:space-y-8">
+            <div class="flex justify-around items-center w-full mb-4">
+              <!-- Navigation Buttons -->
+              <button class="text-black hover:text-[#22A8C6]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M12.293 2.293a1 1 0 010 1.414L7.414 8H17a1 1 0 110 2H7.414l4.879 4.879a1 1 0 11-1.414 1.414l-6.586-6.586a1 1 0 010-1.414l6.586-6.586a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+              </button>
+
+              <div class="flex justify-center">
+                <img class="w-24 h-24 rounded-full border-2 border-primary" src="/assets/images/profile.png"
+                  alt="Client Photo" />
+              </div>
+
+              <button class="text-black hover:text-[#22A8C6]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M7.707 17.707a1 1 0 010-1.414L12.586 12H3a1 1 0 010-2h9.586l-4.879-4.879a1 1 0 011.414-1.414l6.586 6.586a1 1 0 010 1.414l-6.586 6.586a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Testimonial Content -->
+            <p class="font-poppins text-black font-normal text-[18px] leading-[32.5px] text-center">
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The point of using Lorem Ipsum is
+              that it has a more-or-less normal distribution of letters, as opposed to using 'Content
+              here, content here', making it look like readable English.
+            </p>
+
+            <!-- Client Image -->
+            <div
+              class="w-full flex items-center justify-center py-4 border border-custom-blue rounded-full text-center">
+              <img src="/assets/images/icons-three-secctionn.png" alt="Client" class="w-[34px] h-[24px] object-cover">
+            </div>
+
+            <!-- Client Details -->
+            <div class="text-center lg:text-left w-full flex items-center justify-center flex-col">
+              <h2 class="text-[24px] md:text-[30px] font-semibold text-[#000102] mb-2">Cameron Green</h2>
+              <p class="text-[16px] md:text-[18px] text-[#22A8C6] font-poppins">Client</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--============ section three close =========-->
+
+  <!--============ section four star =========-->
+  <section class="relative bg-white py-12 sm:py-16 px-4 sm:px-10">
+    <!-- Section Container -->
+    <div
+      class="w-full max-w-[1812px] h-[524px] mx-auto sm:pt-10 rounded-[30px] bg-black bg-cover bg-center lg:py-5 relative flex items-center justify-center"
+      style="background-image: url('/assets/images/background-two22.png');">
+
+      <div class="container w-full h-full flex flex-col sm:flex-row items-center justify-center px-4 sm:px-10">
+
+        <!-- Text Content -->
+        <div
+          class="flex flex-col items-center sm:items-start text-center sm:text-left w-full sm:w-1/2 h-full justify-center">
+
+          <!-- Subheading -->
+          <h2
+            class="text-[22px] md:text-[41px] mb-4  Fixture  font-semibold text-white leading-[49px] mt-8 md:mt-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300 ...">
+            <span class="flex fixture items-center justify-center sm:justify-start">
+              Our Clients
+              <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="ml-2">
+                <path
+                  d="M21.8996 0.533388C21.984 -0.177796 23.016 -0.177796 23.1005 0.533388L23.8084 6.49958C24.7225 14.2035 30.7965 20.2775 38.5004 21.1916L44.4665 21.8996C45.1778 21.984 45.1778 23.016 44.4665 23.1005L38.5004 23.8084C30.7965 24.7225 24.7225 30.7965 23.8084 38.5004L23.1005 44.4665C23.016 45.1778 21.984 45.1778 21.8996 44.4665L21.1916 38.5004C20.2775 30.7965 14.2035 24.7225 6.49958 23.8084L0.533388 23.1005C-0.177796 23.016 -0.177796 21.984 0.533388 21.8996L6.49958 21.1916C14.2035 20.2775 20.2775 14.2035 21.1916 6.49958L21.8996 0.533388Z"
+                  fill="#22A8C6" />
+              </svg>
+            </span>
+          </h2>
+
+          <!-- Paragraph -->
+          <p class="text-[#F8F8F8] text-[18px] font-poppins mt-4 md:mt-6 leading-[32.5px] md:text-[22px]  w-2/3 md:leading-[32.5px] max-w-xl font-poppins 
+            transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300 ...">
+            We’ve helped over 200+ startups grow their business around the world
+          </p>
+
+        </div>
+
+        <!-- Logos -->
+        <div
+          class="w-full sm:w-1/2 flex flex-wrap items-center justify-center sm:justify-end gap-4 mt-8 sm:mt-0 h-full">
+          <img src="/assets/images/log-ineer-one.png" alt="Logo 1"
+            class="w-[100px] sm:w-auto transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300 ...">
+          <img src="/assets/images/logo-ineer-two.png" alt="Logo 2"
+            class="w-[100px] sm:w-auto transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300 ...">
+          <img src="/assets/images/logo-ineer-three.png" alt="Logo 3"
+            class="w-[100px] sm:w-auto transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300 ...">
+          <img src="/assets/images/logo-ineer-four.png" alt="Logo 4"
+            class="w-[100px] sm:w-auto transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300 ...">
+          <img src="/assets/images/logo-ineer-two.png" alt="Logo 2"
+            class="w-[100px] sm:w-auto transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300 ...">
+          <img src="/assets/images/logo-ineer-six.png" alt="Logo 6"
+            class="w-[100px] sm:w-auto transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300 ...">
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+    <!-- Content Section -->
+    <div class="relative w-full max-w-full mx-auto sm:pt-10 bg-cover bg-center sm:px-10 px-4">
+
+      <!-- Layout -->
+      <div
+        class="max-w-full mx-auto py-3 mt-32 sm:mt-44 tracking-wide s container w-full h-full flex flex-col sm:flex-row items-center justify-center px-4 sm:px-10">
+
+        <!-- Accordion -->
+        <div class="container grid gap-3 py-8 text-lg leading-6 text-gray-800 sm:grid-cols-2">
+
+          <!-- Heading and Paragraph -->
+          <div class="space-y-3 flex flex-col items-start">
+            <h2
+              class="text-[22px] pb-5 Fixture md:text-[49.02px] mb-4 text-left  text-black leading-[55px] md:leading-[49px] mt-8 md:mt-10 w-full max-w-3xl">
+              <span class="
+            Fixture flex items-start justify-start md:leading-8">
+                Our high-quality
+                <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="ml-2">
+                  <path
+                    d="M21.8996 0.533388C21.984 -0.177796 23.016 -0.177796 23.1005 0.533388L23.8084 6.49958C24.7225 14.2035 30.7965 20.2775 38.5004 21.1916L44.4665 21.8996C45.1778 21.984 45.1778 23.016 44.4665 23.1005L38.5004 23.8084C30.7965 24.7225 24.7225 30.7965 23.8084 38.5004L23.1005 44.4665C23.016 45.1778 21.984 45.1778 21.8996 44.4665L21.1916 38.5004C20.2775 30.7965 14.2035 24.7225 6.49958 23.8084L0.533388 23.1005C-0.177796 23.016 -0.177796 21.984 0.533388 21.8996L6.49958 21.1916C14.2035 20.2775 20.2775 14.2035 21.1916 6.49958L21.8996 0.533388Z"
+                    fill="#22A8C6" />
+                </svg>
+              </span>
+              working processes
+
+            </h2>
+            <p
+              class="text-[#000102] pr-10 text-start text-[14px] sm:text-[18px] leading-[24px] sm:leading-[35.54px] w-full sm:w-[763px]">
+              Here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+              in some form,
+              by injected humour, or randomised words which don't look even slightly believable. <br> <br> Injected
+              humour, or randomised
+              If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing
+              hidden in the middle of text.
+            </p>
+          </div>
+
+          <!-- Accordion Items -->
+          <div class="space-y-3">
+            <!-- Accordion Item 1 -->
+            <div x-data="accordion(1)"
+              class="relative transition-all duration-700 border rounded-xl hover:shadow-2xl bg-[#22A8C6] x-data="
+              accordion(2) class="relative transition-all duration-700 border rounded-xl hover:shadow-2xl"
+              :class="{'bg-[#22A8C6] border-[#22A8C6]': !isOpen, 'bg-black border-black': isOpen}">
+              <div @click="handleClick()" class="w-full p-4 text-left cursor-pointer">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center justify-between">
+                    <div
+                      class=" bg-white text-[#22A8C6] Fixture text-[25.78px] h-16 flex items-center justify-center p-3 rounded-full">
+                      01
+                    </div>
+                    <span
+                      class="text-[#FAFDFE] pl-2 text-[18px] sm:text-[30.78px] leading-[24px] sm:leading-[36.93px] tracking-[-0.04em] font-semibold">
+                      Experts Dedication
+                    </span>
+                  </div>
+                  <span :class="handleRotate()" class="transition-transform duration-500 transform fill-current">
+                    <svg class="w-5 h-5 fill-current text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                  </span>
+
+                </div>
+              </div>
+              <div x-ref="tab" :style="handleToggle()"
+                class="relative overflow-hidden transition-all duration-700 max-h-0 bg-[#22A8C6] rounded-[16.49px]">
+                <div
+                  class="pl-20   w-3/4 pb-4 text-[#FAFDFE] text-[14px] sm:text-[16.17px] leading-[24px] sm:leading-[36.37px] font-normal">
+                  deserunt mollit anim id esSed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div x-data="accordion(2)" class="relative transition-all duration-700 border rounded-xl hover:shadow-2xl"
+              :class="{'bg-[#22A8C6] border-[#22A8C6]': !isOpen, 'bg-black border-black': isOpen}">
+              <div @click="handleClick()" class="w-full p-4 text-left cursor-pointer">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+
+                    <div :class="{'bg-black text-white': !isOpen, 'bg-black text-white': isOpen}"
+                      class="Fixture text-[25.78px] h-16 flex items-center justify-center p-3 rounded-full bg-black text-white">
+                      03
+                    </div>
+
+                    <span :class="{'text-[#FAFDFE]': !isOpen, 'text-black': isOpen}"
+                      class="pl-2 text-[18px] sm:text-[30.78px] leading-[24px] sm:leading-[36.93px] tracking-[-0.04em] font-semibold">
+                      Experts Dedication
+                    </span>
+                  </div>
+                  <span :class="handleRotate()" class="transition-transform duration-500 transform fill-current">
+                    <svg class="w-5 h-5 fill-current" :class="{'text-white': !isOpen, 'text-black': isOpen}"
+                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div x-ref="tab" :style="handleToggle()"
+                class="relative overflow-hidden transition-all duration-700 max-h-0"
+                :class="{'bg-[#22A8C6]': !isOpen, 'bg-black': isOpen} rounded-[16.49px]">
+                <div
+                  class="pb-4 pl-20 w-3/4 text-[14px] sm:text-[16.17px] leading-[24px] sm:leading-[36.37px] font-normal"
+                  :class="{'text-[#FAFDFE]': !isOpen, 'text-white': isOpen}">
+                  deserunt mollit anim id esSed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div x-data="accordion(3)" class="relative transition-all duration-700 border rounded-xl hover:shadow-2xl"
+              :class="{'bg-[#22A8C6] border-[#22A8C6]': !isOpen, 'bg-black border-black': isOpen}">
+              <div @click="handleClick()" class="w-full p-4 text-left cursor-pointer">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+
+                    <div :class="{'bg-black text-white': !isOpen, 'bg-black text-white': isOpen}"
+                      class="Fixture text-[25.78px] h-16 flex items-center justify-center p-3 rounded-full bg-black text-white">
+                      03
+                    </div>
+
+                    <span :class="{'text-[#FAFDFE]': !isOpen, 'text-black': isOpen}"
+                      class="pl-2 text-[18px] sm:text-[30.78px] leading-[24px] sm:leading-[36.93px] tracking-[-0.04em] font-semibold">
+                      Experts Dedication
+                    </span>
+                  </div>
+                  <span :class="handleRotate()" class="transition-transform duration-500 transform fill-current">
+                    <svg class="w-5 h-5 fill-current" :class="{'text-white': !isOpen, 'text-black': isOpen}"
+                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div x-ref="tab" :style="handleToggle()"
+                class="relative overflow-hidden transition-all duration-700 max-h-0"
+                :class="{'bg-[#22A8C6]': !isOpen, 'bg-black': isOpen} rounded-[16.49px]">
+                <div
+                  class="pb-4 pl-20 w-3/4 text-[14px] sm:text-[16.17px] leading-[24px] sm:leading-[36.37px] font-normal"
+                  :class="{'text-[#FAFDFE]': !isOpen, 'text-white': isOpen}">
+                  deserunt mollit anim id esSed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                </div>
+              </div>
+            </div>
+            <!-- Accordion Item 3 -->
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!--============ section four close =========-->
+  <!--============ section five start =========-->
+  <section class="relative bg-black py-12 sm:py-16 px-4 sm:px-10 flex items-center justify-center"
+    style="border-top-right-radius: 10px; border-top-left-radius: 10px;">
+    <div class="container flex flex-col lg:py-10 lg:mt-10 md:flex-row md:justify-between sm:mt-6 sm:px-4 items-center">
+
+      <!-- Text and Image Content -->
+      <main class="flex flex-col items-start justify-center text-left w-full lg:max-w-[50%]">
+        <h3
+          class="text-white Fixture font-semibold text-[8vw] sm:text-[56px] leading-[8vw] sm:leading-[56px] tracking-[-0.82px] mb-[7px]">
+          <span>
+            Let's start a
+            <img src="/assets/images/sparkle.png" alt="Sparkle" class="inline-block h-[56px] w-auto">
+          </span><br>
+          project together
+        </h3>
+        <p
+          class="font-poppins text-[14px] sm:text-[16px] md:text-[18px] lg:text-[18px] leading-[20px] sm:leading-[24px] md:leading-[24px] lg:leading-[36px] text-white mt-4 sm:mt-6 md:mt-8">
+          It is a long established fact that a reader will be distracted by the readable content of a page when looking
+          at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
+        </p>
+        <div
+          class="w-full flex justify-center mt-6 md:mt-0 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">
+          <img src="/assets/images/hero-bottom-line.png" alt=""
+            class="w-[254px] sm:w-[325px] h-auto transform -rotate-[160.94°]">
+        </div>
+      </main>
+
+      <!-- Form Section -->
+      <section class="w-full lg:max-w-[50%] text-left px-4 sm:px-6 md:px-8 mt-8 md:mt-0">
+        <div class="mb-6">
+          <h4 class="text-white text-[20px] sm:text-[24px] leading-[24px] sm:leading-[28px] font-semibold">
+            Send us a Message
+          </h4>
+        </div>
+        <form id="contactForm" class="flex flex-col space-y-4">
+          <input type="text" placeholder="First Name*"
+            class="w-full h-[50px] sm:h-[60px] md:h-[70px] rounded-[20px] md:rounded-[30px] border border-white px-[20px] md:px-[26px] bg-transparent text-white placeholder-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300"
+            required />
+          <input type="email" placeholder="Your Email address*"
+            class="w-full h-[50px] sm:h-[60px] md:h-[70px] rounded-[20px] md:rounded-[30px] border border-white px-[20px] md:px-[26px] bg-transparent text-white placeholder-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300"
+            required />
+          <input type="tel" placeholder="(654) 825-4655"
+            class="w-full h-[50px] sm:h-[60px] md:h-[70px] rounded-[20px] md:rounded-[30px] border border-white px-[20px] md:px-[26px] bg-transparent text-white placeholder-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300" />
+          <textarea placeholder="Write your Message here..."
+            class="w-full h-[80px] sm:h-[100px] md:h-[119px] rounded-[20px] md:rounded-[30px] border border-white px-[20px] md:px-[25px] py-4 md:py-6 bg-transparent text-white placeholder-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300"
+            rows="4"></textarea>
+          <button type="submit"
+            class="w-full h-[40px] sm:h-[50px] md:h-[60px] rounded-[20px] md:rounded-[30px] py-[10px] sm:py-[14px] md:py-[18px] bg-[#22A8C6] text-white text-[16px] sm:text-[18px] md:text-[20px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[hover] duration-300">Submit</button>
+        </form>
+      </section>
+
+    </div>
+  </section>
+  <!--============ section five close =========-->
+  <!--============ Footer Section Start ==========-->
+  <footer class="bg-black text-white py-8">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center md:items-start">
+
+      <!-- Logo and Description -->
+      <div class="flex flex-col items-center md:items-start mb-6 md:mb-0 text-center md:text-left">
+        <img aria-hidden="true" alt="Two Cat Designs Logo" src="/assets/images/Logo.png" class="w-[168px] h-[102px]" />
+        <p class="mt-[44.53px] text-[18px] w-[50%] leading-[27px] font-normal font-inter">
+          Stay updated with the latest trends and insights in the design industry.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left md:mr-10 mb-6 md:mb-0">
+        <h4 class="text-[23.68px] leading-[28.42px] font-semibold">Quick Links</h4>
+        <ul class="mt-4 space-y-3">
+          <li><a href="#" class="text-[#E9E8E8] hover:text-primary">Home</a></li>
+          <li><a href="#" class="text-[#E9E8E8] hover:text-primary">About Us</a></li>
+          <li><a href="#" class="text-[#E9E8E8] hover:text-primary">Services</a></li>
+          <li><a href="#" class="text-[#E9E8E8] hover:text-primary">Portfolio</a></li>
+          <li><a href="#" class="text-[#E9E8E8] hover:text-primary">Testimonials</a></li>
+          <li><a href="#" class="text-[#E9E8E8] hover:text-primary">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left md:mr-10 mb-6 md:mb-0">
+        <h4 class="text-[23.68px] leading-[28.42px] font-semibold">Services</h4>
+        <ul class="mt-4 space-y-3">
+          <li><a href="#" class="text-[#E9E8E8] hover:text-primary">Website Design</a></li>
+          <li><a href="#" class="text-[#E9E8E8] hover:text-primary">Website Development</a></li>
+          <li><a href="#" class="text-[#E9E8E8] hover:text-primary">Mascot Logo</a></li>
+          <li><a href="#" class="text-[#E9E8E8] hover:text-primary">Emblem Logos</a></li>
+          <li><a href="#" class="text-[#E9E8E8] hover:text-primary">Graphic Design</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media & Contact Info -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left">
+        <h4 class="text-[23.68px] leading-[28.42px] font-semibold mb-2">Social Media</h4>
+        <div class="flex space-x-4 mb-6 md:mb-10 justify-center">
+          <a href="#" class="bg-[#22A8C6] rounded-full p-2 text-white">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+              viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+          </a>
+          <a href="#" class="bg-[#22A8C6] rounded-full p-2 text-white">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+              viewBox="0 0 24 24">
+              <path
+                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+              </path>
+            </svg>
+          </a>
+          <a href="#" class="bg-[#22A8C6] rounded-full p-2 text-white">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-5 h-5" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+            </svg>
+          </a>
+          <a href="#" class="bg-[#22A8C6] rounded-full p-2 text-white">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="flex flex-col space-y-4">
+          <div class="flex items-center space-x-2">
+            <img src="/assets/images/phone-icon.png" alt="Phone Icon" class="w-5 h-5">
+            <span>(607) 555-0101</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <img src="/assets/images/sms-icons.png" alt="Email Icon" class="w-5 h-5">
+            <span>contact@info.com</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center mt-8">
+      <div class="text-white font-poppins font-normal text-[18px] leading-[32.5px] text-center md:text-left">
+        © Copyright 2024, All Rights Reserved By
+        <a href="#" class="text-[#22A8C6] hover:underline">Two Cat Designs</a>
+      </div>
+      <div class="mt-4 md:mt-0">
+        <img src="/assets/images/footer-payment-method.png" alt="Payment Methods">
+      </div>
+    </div>
+  </footer>
+  <!--============ Footer Section Close ==========-->
+
+
+
+  <script src="https://kit.fontawesome.com/290d4f0eb4.js" crossorigin="anonymous"></script>
+  <script src="/assets/js/script.js"></script>
+</body>
+
+</html>
