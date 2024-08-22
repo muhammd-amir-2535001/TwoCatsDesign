@@ -1,0 +1,227 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap');
+
+:root {
+  --primary-color: #22A8C6;
+  --white: #ffffff;
+  --max-width: 80vw;
+  --header-font: "Bebas Neue", sans-serif;
+}
+body,
+html {
+    overflow-x: hidden !important;
+    scroll-behavior: smooth;
+}
+@font-face {
+  font-family: 'RethinkSans';
+  src: url('/assets/fonts/RethinkSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'FixtureExpanded';
+  src: url('/assets/fonts/Fixture\ Expanded\ SemiBold.otf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'font-poppins';
+  src: url('/assets/fonts/Poppins-Light.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DrukWideTrial';
+  src: url('/assets/fonts/DrukTextWide-Bold-Trial.otf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'fontInter';
+  src: url('/assets/fonts/Inter_18pt-Light.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  text-rendering: optimizeLegibility !important;
+}
+.main-hero-header {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('/assets/images/hero-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+nav {
+  position: fixed;
+  isolation: isolate;
+  width: 100vw;
+  z-index: 9;
+  margin-right: 10%;
+}
+.nav__header {
+  padding: 1rem;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+}
+.logo img {
+  display: inline-block;
+  width: auto; 
+  height: auto; 
+  vertical-align: middle; 
+  height: 55px;
+}
+
+.nav__links {
+  position:fixed;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  /* padding: 2rem; */
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+  line-height: 20px;
+  background-color:black;
+  color: #ffffff;
+  transition: 0.5s;
+  z-index: -1;
+  transform: translateY(-100%);
+}
+
+.nav__links.open {
+  transform: translateY(0);
+  background-color: none;
+}
+
+.nav__links a {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  font-family: 'RethinkSans', sans-serif;
+}
+
+
+.nav__links a:hover {
+  color: var(--primary-color);
+}
+
+.nav__btns {
+  display: none;
+}
+.hero-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: left;
+}
+#contact{
+  background-image: url('/assets/images/from-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+ /* ================section one strat from here ==================== */
+ .section-one{
+  height: 100vh;
+  width: 100vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
+ }
+ .section-two{
+  height: 1600px;
+  width: 1812px;
+  border-radius: 30px;
+  margin-left:3%;
+  /* margin-right:3%; */
+  background-color: black;
+  background-image: url('/assets/images/background-color-section-two.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* background-attachment: fixed; */
+  
+ }
+ [x-cloak] {
+  display: none !important;
+}
+.Fixture{
+  font-family: 'FixtureExpanded';
+  font-weight: 400;
+  font-style: normal;
+}
+.font-poppins{
+  font-family: 'font-poppins';
+}
+.DrukWideTrial{
+  font-family: 'DrukWideTrial';
+}
+.fontInter{
+  font-family: 'fontInter';
+}
+/* Keyframes for left-to-right animation */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Keyframes for right-to-left animation */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation classes */
+.animate-slide-left {
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInFromRight 1s ease-out forwards;
+}

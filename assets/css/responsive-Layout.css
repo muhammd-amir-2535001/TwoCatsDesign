@@ -1,0 +1,89 @@
+@media (width > 768px) {
+    nav {
+        position: static;
+        padding-block: 2rem 0;
+        padding-inline: 1rem;
+        max-width: var(--max-width);
+        margin-inline: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+    .nav__header {
+        /* flex: 1; */
+        padding: 0;
+        background-color: transparent;
+    }
+    .nav__menu__btn {
+        display: none;
+    }
+    .nav__links {
+        position: static;
+        padding: 0;
+        flex-direction: row;
+        background-color: transparent;
+        transform: none;
+    }
+    .main-hero-header {
+        height: 100vh;
+        width: 100vw;
+        background-image: url('/assets/images/hero-background.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+      }
+    .nav__btns {
+        display: flex;
+        flex: 1;
+    }
+    .live__chat {
+        font-family: "Rethink Sans";
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--white);
+        background-color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 149.84px;
+        padding: 16px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .nav__links.open {
+        transform: translateY(0);
+        margin-top: 15%;
+        background-color: transparent;
+        /* Optionally, add other mobile-specific styles */
+      }
+      .btn .live__chat{
+         display: none;
+      }
+}
+/* Hide .nav__btns on tablets and mobile devices */
+@media (max-width: 1024px) {
+    .nav__btns {
+      display: none;
+    }
+  }
+  @media (max-width: 640px) {
+    .main-hero-header {
+      height: 130vh;
+      width: 100vw;
+      background-image: url('/assets/images/hero-background.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+    .section-one{
+      height: 100vh;
+      width: 100vw;
+      padding-left: 10vw;
+      padding-right: 10vw;
+      /* padding-top: 10vh; */
+      margin-top: 40vh;
+     }
+  }
